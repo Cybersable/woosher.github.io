@@ -1,0 +1,170 @@
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+.form-group {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.form-input {
+  border: none;
+  outline: none;
+  color: $defaultFontColor;
+  border-bottom: 1px solid $primary-color;
+  padding-top: 40px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  width: 100%;
+  min-width: 300px;
+  font-size: 16px;
+  &:focus + .form-label .form-label__content,
+  &:valid + .form-label .form-label__content {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: $primaryFontColor;
+  }
+  &:focus + .form-label::after,
+  &:valid + .form-label:after {
+    transform: translateX(0);
+  }
+}
+.form-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  color: $primary-color;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid $main-color;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  &__content {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+    padding-left: 10px;
+  }
+}
+.form-input-text {
+  width: 100%;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border: none;
+  outline: none;
+  color: $defaultFontColor;
+  border-bottom: 1px solid $primary-color;
+  font-size: 16px;
+  padding-top: 40px;
+  &:not(:placeholder-shown) + .form-label .form-label__content,
+  &:focus + .form-label .form-label__content {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: $primaryFontColor;
+  }
+  &:not(:placeholder-shown) + .form-label::after,
+  &:focus + .form-label::after {
+    transform: translateX(0);
+  }
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: -9999999999px;
+  height: 0px;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.3s ease;
+  &.active {
+    height: 100vh;
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+.modal-wrapper-close {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+.modal {
+  display: flex;
+  //align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;
+  border-radius: 3px;
+  background-color: $light-color;
+  position: relative;
+  @include media-breakpoint-down(sm) {
+    height: 100vh;
+    border-radius: 0;
+    justify-content: flex-start;
+    padding: 10px;
+  }
+}
+.modal-form {
+  width: 100%;
+}
+.modal-close-btn-wrapper {
+  position: absolute;
+  z-index: 100;
+  right: 5px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+}
+.modal-close-btn {
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.32s;
+  &:hover {
+    //background-color: $primary-color;
+    &:before {
+      transform:rotate(225deg);
+    }
+    &:after {
+      transform:rotate(135deg);
+    }
+  }
+  &:before, &:after {
+    position: absolute;
+    height: 4px;
+    width:100%;
+    background: black;
+    content: "";
+    transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.32s;
+  }
+  &:before {
+    transform:rotate(45deg);
+    top:49%;
+  }
+  &:after {
+    transform:rotate(-45deg);
+    top:49%;
+  }
+}

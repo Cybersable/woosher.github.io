@@ -1,0 +1,75 @@
+/* Vars:
+  ========================================================================== */
+
+// Font
+$mainFont                : "Sarabun", sans-serif;
+
+// Size
+$mainFontSize            : 16px;
+$mainFontWeight          : 400;
+$mainLineHeight          : 1.4;
+
+
+/*
+  All colors taken from:
+  https://github.com/vedees/uimini
+*/
+
+// Font Colors
+$defaultFontColor        : #111;
+$lightFontColor          : #fff;
+$mainFontColor           : #ffed00;
+$primaryFontColor        : #6f6f6f;
+$lastFontcolor           : #007bff;
+
+// Border Colors
+$defaultBorderColor        : #111;
+$mainBorderColor           : #ffed00;
+$primaryBorderColor        : #6f6f6f;
+$lastBorderColor           : #007bff;
+
+$default-color           : #111;
+$light-color             : #fff;
+$main-color              : #ffed00;
+$primary-color           : #6f6f6f;
+$last-color              : #007bff;
+
+
+
+$success-color           : #26de81;
+$danger-color            : #fc5c65;
+$warning-color           : #fed330;
+
+$purple-color            : #8854d0;
+
+// Neutral Color
+$neutral-primary         : #303133;
+$neutral-regular         : #606266;
+$neutral-secondary       : #909399;
+$neutral-placeholder     : #C0C4CC;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1380px
+) !default;
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px,
+        xxl: 1320px
+) !default;
+
+// Border radius
+$br : 2px;
+
+.d-md-none {
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}

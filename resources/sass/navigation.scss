@@ -1,0 +1,205 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+.navigation {
+  display: flex;
+  padding: 15px 0;
+  justify-content: space-between;
+}
+.hamburger-wrapper {
+  @include media-breakpoint-up(xl) {
+    display: none;
+  }
+  background: #ccc;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+
+  .hamburger {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    span {
+      position: absolute;
+      height: 2px;
+      width:100%;
+      background: $light-color;
+      transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.32s;
+      &:nth-child(1) {
+        top: 19%;
+      }
+      &:nth-child(2) {
+        top: 49%;
+      }
+      &:nth-child(3) {
+        top: 79%;
+      }
+    }
+    &.active {
+      span {
+        &:nth-child(1) {
+          transform:rotate(45deg);
+          top:49%;
+        }
+        &:nth-child(2) {
+          transform:rotate(-45deg);
+          top:49%;
+        }
+        &:nth-child(3) {
+          transform:rotate(-45deg);
+          top:49%;
+        }
+      }
+    }
+  }
+}
+.company {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+.company-name {
+  color: $defaultFontColor;
+  font-size: 32px;
+  font-weight: bold;
+  display: none;
+  @include media-breakpoint-up(xxl) {
+    display: inline;
+  }
+  @include media-breakpoint-between(sm, lg) {
+    display: inline;
+  }
+}
+.logo-black {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  @include media-breakpoint-down(lg) {
+    width: 30px;
+    height: 30px;
+  }
+}
+.main-menu {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  @include media-breakpoint-down(lg) {
+    position: absolute;
+    overflow: hidden;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    height: 0;
+    transition: height 0.5s;
+    border-top: 2px dashed transparent;
+    li {
+      width: 100%;
+      a {
+        display: flex;
+        padding: 20px;
+      }
+    }
+    &.active {
+      border-top: 2px dashed $primary-color;
+      height: calc(100vh - 70px);
+    }
+  }
+
+  li {
+    padding: 0 10px;
+
+    a {
+      color: $primary-color;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: bold;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 5px;
+      &.active {
+        border-bottom: 2px dashed $main-color;
+        @include media-breakpoint-down(lg) {
+          border-bottom: none;
+        }
+      }
+      &:hover {
+        color: $defaultFontColor;
+        border-bottom: 2px solid $mainBorderColor;
+      }
+
+      @include media-breakpoint-down(lg) {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  display: none;
+  @include media-breakpoint-down(lg) {
+    display: inline;
+  }
+}
+
+.to-feedback {
+  display: flex;
+  align-items: center;
+
+  .feedback-btn {
+    margin-left: 10px;
+  }
+  @include media-breakpoint-down(xs) {
+    .main-link {
+      font-size: 12px;
+    }
+  }
+}
+.feedback-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  background-color: $main-color;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  min-width: 50px;
+  &:hover {
+    color: $lightFontColor;
+    background-color: $primary-color;
+  }
+  span {
+    @include media-breakpoint-down(sm) {
+    display: none;
+  }
+  }
+}
+.feedback-phone-icon {
+  width: 30px;
+  height: 30px;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
